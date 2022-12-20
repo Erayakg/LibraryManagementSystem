@@ -1,5 +1,7 @@
 package GUI;
 
+import GUI_Action.MainWindowAction;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -108,6 +110,7 @@ public class MainWindow {
         if(this.button2== null){
             this.button2= new JButton("Öğrenci Giriş");
             this.button2.setBounds(100,300,100,50);
+            this.button2.addActionListener(new MainWindowAction(this));
         }
 
         return button2;
@@ -121,6 +124,7 @@ public class MainWindow {
         if(this.button3== null){
             this.button3= new JButton("Host Giriş");
             this.button3.setBounds(200,300,100,50);
+            this.button3.addActionListener(new MainWindowAction(this));
         }
 
         return button3;
