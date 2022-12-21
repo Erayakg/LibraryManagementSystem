@@ -1,5 +1,6 @@
 package GUI;
 
+import Controller.MainWindowController;
 import GUI_Action.MainWindowAction;
 
 import javax.swing.*;
@@ -12,6 +13,7 @@ public class MainWindow {
     private JTextField textField;
     private JButton button1,button2,button3;
     private JTable table;
+    MainWindowController mainWindowController= new MainWindowController();
 
     public void build(){
         getWindow();
@@ -129,20 +131,18 @@ public class MainWindow {
 
         return button3;
     }
-
     public void setButton3(JButton button3) {
         this.button3 = button3;
     }
-
     public JTable getTable() {
         if(this.table== null){
-            this.table = new JTable();
+            String[] col={"Kitabın Adı","Yazar","Sayfa Sayısı","Açıklama"};
+            this.table = new JTable(mainWindowController.dataGet(),col);
             this.table.setBackground(Color.red);
             this.table.setBounds(400,30,295,600);
         }
         return table;
     }
-
     public void setTable(JTable table) {
         this.table = table;
     }

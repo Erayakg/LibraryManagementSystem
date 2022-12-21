@@ -8,19 +8,15 @@ import java.util.List;
 
 public class BooksDAO extends MainDAO{
     Books b1=new Books();
-
     ArrayList  arrayList =new ArrayList<>();
     public void build(){
-        b1.setName("ince memed");
-        b1.setId(1);
-        b1.setDescription("yaşar kemalin kitabı");
+        b1.setName("sefiller");
+b1.setAuthor("victor hugo");
+        b1.setPage(120);
+        b1.setDescription("güzel kitap");
         try {
-            //Save(b1);
-            GetData("class Entities.Books.Books",arrayList);
+            Save(b1);
 
-            for (Object i: arrayList) {
-                System.out.println(i);
-            }
         }catch (Exception e){
             System.out.println(e);
         }

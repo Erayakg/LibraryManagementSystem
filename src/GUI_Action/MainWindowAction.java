@@ -11,11 +11,9 @@ import java.awt.event.ActionListener;
 public class MainWindowAction implements ActionListener {
     private MainWindow mw;
     private CustomPanel panel;
-
     public MainWindowAction(MainWindow mw) {
         this.mw = mw;
     }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == mw.getButton2()) {

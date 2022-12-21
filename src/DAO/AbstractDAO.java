@@ -31,10 +31,8 @@ public abstract class AbstractDAO {
             FileReader fileReader = new FileReader(file);
             BufferedReader reader =new BufferedReader(fileReader);
             while ((line = reader.readLine()) != null) {
-                //System.out.println(line);
                 arrayList.add(line);
             }
-
             reader.close();
         }catch (Exception e){
             System.out.println("dosya okuma hatası:  "+FileName);

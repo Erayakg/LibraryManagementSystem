@@ -18,9 +18,6 @@ public class HostWindow implements CustomPanel {
             this.panel.add(getTemail());
             this.panel.add(getTsifre());
             this.panel.add(getGiris());
-
-
-
             this.panel.setLayout(null);
         }
         return panel;
