@@ -11,7 +11,8 @@ public class MainWindow {
     private JPanel panel,panel2;
     private JLabel label1,label2;
     private JTextField textField;
-    private JButton button1,button2,button3;
+    private JButton SearchButton,StudentButton,button3;
+
     private JTable table;
     MainWindowController mainWindowController= new MainWindowController();
 
@@ -19,8 +20,8 @@ public class MainWindow {
         getWindow();
         this.getPanel().add(this.getLabel1());
         this.getPanel().add(this.getTextField());
-        this.getPanel().add(this.getButton1());
-        this.getPanel().add(this.getButton2());
+        this.getPanel().add(this.getSearchButton());
+        this.getPanel().add(this.getStudentButton());
         this.getPanel().add(this.getButton3());
         this.getPanel().add(this.getTable());
 
@@ -96,30 +97,30 @@ public class MainWindow {
         this.label2 = label2;
     }
 
-    public JButton getButton1() {
-        if(this.button1== null){
-            this.button1= new JButton("ARA");
-            this.button1.setBounds(100,100,100,50);
+    public JButton getSearchButton() {
+        if(this.SearchButton== null){
+            this.SearchButton= new JButton("ARA");
+            this.SearchButton.setBounds(100,100,100,50);
         }
-        return button1;
+        return SearchButton;
     }
 
-    public void setButton1(JButton button1) {
-        this.button1 = button1;
+    public void setSearchButton(JButton SearchButton) {
+        this.SearchButton = SearchButton;
     }
 
-    public JButton getButton2() {
-        if(this.button2== null){
-            this.button2= new JButton("Öğrenci Giriş");
-            this.button2.setBounds(100,300,100,50);
-            this.button2.addActionListener(new MainWindowAction(this));
+    public JButton getStudentButton() {
+        if(this.StudentButton== null){
+            this.StudentButton= new JButton("Öğrenci Giriş");
+            this.StudentButton.setBounds(100,300,100,50);
+            this.StudentButton.addActionListener(new MainWindowAction(this));
         }
 
-        return button2;
+        return StudentButton;
     }
 
-    public void setButton2(JButton button2) {
-        this.button2 = button2;
+    public void setStudentButton(JButton StudentButton) {
+        this.StudentButton = StudentButton;
     }
 
     public JButton getButton3() {
