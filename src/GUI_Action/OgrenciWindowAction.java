@@ -21,10 +21,13 @@ public class OgrenciWindowAction implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==ow.getGiris()){
             panel=new OgrLogWindow();
-            ow.getWindow().setContentPane(panel.getPanel());
-            ow.getWindow().repaint();
-
-
+            ow.getPanel().setVisible(false);
+            ow.getPanel().removeAll();
+            ow.getPanel().add(panel.getPanel());
+            ow.getPanel().setVisible(true);
+            ow.getPanel().repaint();
+            //ow.getWindow().setContentPane(panel.getPanel());
+            //ow.getWindow().repaint();
 
         }
     }

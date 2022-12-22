@@ -25,8 +25,7 @@ public class MainWindowAction implements ActionListener {
             panel = new HostWindow();
             mw.getWindow().setContentPane(panel.getPanel());
             mw.getWindow().repaint();
+            }
         }
-
-    }
     }
 
