@@ -26,9 +26,6 @@ public class MainWindow {
         this.getPanel().add(this.getTable());
 
     }
-
-
-
     public JFrame getWindow() {
         if (this.window == null) {
             this.window = new JFrame("Kütüphane Otomasyonu");
