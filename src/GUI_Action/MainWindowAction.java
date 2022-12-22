@@ -16,7 +16,7 @@ public class MainWindowAction implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == mw.getButton2()) {
+        if (e.getSource() == mw.getStudentButton()) {
             panel = new OgrenciWindow();
             mw.getWindow().setContentPane(panel.getPanel());
             mw.getWindow().repaint();

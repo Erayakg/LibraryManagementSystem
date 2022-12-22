@@ -6,7 +6,7 @@ import GUI.MainWindow;
 import java.util.ArrayList;
 public class MainWindowController extends AbstractController {
     Books b1 =new Books();
-    MainWindow mainWindow = new MainWindow();
+    //MainWindow mainWindow = new MainWindow();
     MainDAO mainDAO= new MainDAO();
     ArrayList<Books> booksArrayList =new ArrayList<>();
     public String BookFileName= String.valueOf(b1.getClass());

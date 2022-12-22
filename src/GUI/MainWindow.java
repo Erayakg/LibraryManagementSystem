@@ -6,9 +6,9 @@ import GUI_Action.MainWindowAction;
 import javax.swing.*;
 import java.awt.*;
 
-public class MainWindow {
+public class MainWindow extends OgrLogWindow {
     private JFrame window;
-    private JPanel panel,panel2;
+    private JPanel panel;
     private JLabel label1,label2;
     private JTextField textField;
     private JButton SearchButton,StudentButton,button3;

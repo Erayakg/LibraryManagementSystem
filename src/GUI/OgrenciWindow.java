@@ -1,8 +1,10 @@
 package GUI;
 
+import GUI_Action.OgrenciWindowAction;
+
 import javax.swing.*;
 
-public class OgrenciWindow implements CustomPanel{
+public class OgrenciWindow extends MainWindow implements CustomPanel {
     private JPanel panel;
     private JButton giris;
     private JLabel email,sifre;
@@ -34,6 +36,7 @@ public class OgrenciWindow implements CustomPanel{
         if(this.giris== null){
             this.giris=new JButton("Giris Yap");
             this.giris.setBounds(250, 450, 150, 40);
+            this.giris.addActionListener(new OgrenciWindowAction(this));
 
         }
         return giris;
