@@ -5,12 +5,8 @@ import GUI_Action.OgrenciWindowAction;
 import javax.swing.*;
 
 public class OgrLogWindow implements CustomPanel{
-
     private JPanel panel;
     private JButton giris;
-
-
-
     @Override
     public JPanel getPanel() {
         if (this.panel == null) {

@@ -5,27 +5,33 @@ import GUI_Action.MainWindowAction;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.ImageObserver;
+import java.awt.image.ImageProducer;
 
 public class MainWindow extends OgrLogWindow {
     private JFrame window;
     private JPanel panel;
-    private JLabel label1,label2;
+    private JLabel label1, label2;
     private JTextField textField;
-    private JButton SearchButton,StudentButton,button3;
+    private JButton SearchButton, StudentButton, button3;
 
     private JTable table;
-    MainWindowController mainWindowController= new MainWindowController();
+    MainWindowController mainWindowController = new MainWindowController();
 
-    public void build(){
+    Image mg = new ImageIcon(MainWindow.class.getResource("/resim/ogrenci.jpg")).getImage();
+    Image mg2 = new ImageIcon(MainWindow.class.getResource("/resim/admin.png")).getImage();
+
+
+    public void build() {
         getWindow();
         this.getPanel().add(this.getLabel1());
-        this.getPanel().add(this.getTextField());
-        this.getPanel().add(this.getSearchButton());
+        this.getPanel().add(this.getLabel2());
         this.getPanel().add(this.getStudentButton());
         this.getPanel().add(this.getButton3());
-        this.getPanel().add(this.getTable());
+
 
     }
+
     public JFrame getWindow() {
         if (this.window == null) {
             this.window = new JFrame("Kütüphane Otomasyonu");
@@ -44,8 +50,8 @@ public class MainWindow extends OgrLogWindow {
     }
 
     public JPanel getPanel() {
-        if(this.panel== null){
-            this.panel=new JPanel();
+        if (this.panel == null) {
+            this.panel = new JPanel();
             this.panel.setLayout(null);
         }
         return panel;
@@ -56,26 +62,11 @@ public class MainWindow extends OgrLogWindow {
     }
 
 
-
-    public JTextField getTextField() {
-        if(this.textField== null){
-            this.textField=new JTextField();
-            this.textField.setBackground(Color.black);
-            this.textField.setBounds(130, 55, 150, 30);
-        }
-        return textField;
-    }
-
-    public void setTextField(JTextField textField) {
-        this.textField = textField;
-    }
-
-
-
     public JLabel getLabel1() {
-        if(this.label1== null){
-            this.label1= new JLabel("Kitap Adı");
-            this.label1.setBounds(40, 50, 100, 20);
+        if (this.label1 == null) {
+            this.label1 = new JLabel(new ImageIcon(mg));
+            this.label1.setBounds(200, 100, 150, 150);
+            this.label1.setBackground(Color.gray);
         }
         return label1;
     }
@@ -85,8 +76,12 @@ public class MainWindow extends OgrLogWindow {
     }
 
 
-
     public JLabel getLabel2() {
+        if(this.label2==null){
+            this.label2 = new JLabel(new ImageIcon(mg2));
+            this.label2.setBounds(400, 100, 150, 150);
+            this.label2.setBackground(Color.gray);
+        }
         return label2;
     }
 
@@ -94,22 +89,11 @@ public class MainWindow extends OgrLogWindow {
         this.label2 = label2;
     }
 
-    public JButton getSearchButton() {
-        if(this.SearchButton== null){
-            this.SearchButton= new JButton("ARA");
-            this.SearchButton.setBounds(100,100,100,50);
-        }
-        return SearchButton;
-    }
-
-    public void setSearchButton(JButton SearchButton) {
-        this.SearchButton = SearchButton;
-    }
 
     public JButton getStudentButton() {
-        if(this.StudentButton== null){
-            this.StudentButton= new JButton("Öğrenci Giriş");
-            this.StudentButton.setBounds(100,300,100,50);
+        if (this.StudentButton == null) {
+            this.StudentButton = new JButton("Öğrenci Giriş");
+            this.StudentButton.setBounds(200, 250, 150, 50);
             this.StudentButton.addActionListener(new MainWindowAction(this));
         }
 
@@ -121,27 +105,16 @@ public class MainWindow extends OgrLogWindow {
     }
 
     public JButton getButton3() {
-        if(this.button3== null){
-            this.button3= new JButton("Host Giriş");
-            this.button3.setBounds(200,300,100,50);
+        if (this.button3 == null) {
+            this.button3 = new JButton("Host Giriş");
+            this.button3.setBounds(400, 250, 150, 50);
             this.button3.addActionListener(new MainWindowAction(this));
         }
 
         return button3;
     }
+
     public void setButton3(JButton button3) {
         this.button3 = button3;
-    }
-    public JTable getTable() {
-        if(this.table== null){
-            String[] col={"Kitabın Adı","Yazar","Sayfa Sayısı","Açıklama"};
-            this.table = new JTable(mainWindowController.dataGet(),col);
-            this.table.setBackground(Color.red);
-            this.table.setBounds(400,30,295,600);
-        }
-        return table;
-    }
-    public void setTable(JTable table) {
-        this.table = table;
     }
 }

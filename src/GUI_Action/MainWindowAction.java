@@ -1,15 +1,18 @@
 package GUI_Action;
 
+import Controller.MainWindowController;
 import GUI.CustomPanel;
 import GUI.HostWindow;
 import GUI.MainWindow;
 import GUI.OgrenciWindow;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MainWindowAction implements ActionListener {
     private MainWindow mw;
+    MainWindowController mainWindowController= new MainWindowController();
     private CustomPanel panel;
     public MainWindowAction(MainWindow mw) {
         this.mw = mw;
@@ -26,6 +29,7 @@ public class MainWindowAction implements ActionListener {
             mw.getWindow().setContentPane(panel.getPanel());
             mw.getWindow().repaint();
             }
+
         }
     }
 

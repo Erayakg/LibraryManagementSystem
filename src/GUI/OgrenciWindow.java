@@ -3,18 +3,23 @@ package GUI;
 import GUI_Action.OgrenciWindowAction;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class OgrenciWindow extends MainWindow implements CustomPanel {
     private JPanel panel;
     private JButton giris;
-    private JLabel email,sifre;
+    private JLabel email,sifre,yazi;
     private JTextField temail,tsifre;
+
+    Font yazifont= new Font("Courier", Font.PLAIN, 20);
+    Font buttonfont= new Font()
 
     @Override
     public JPanel getPanel() {
         if(this.panel== null){
             this.panel=new JPanel();
             this.panel.setSize(800,600);
+            this.panel.add(getYazi());
             this.panel.add(getEmail());
             this.panel.add(getSifre());
             this.panel.add(getTemail());
@@ -32,10 +37,27 @@ public class OgrenciWindow extends MainWindow implements CustomPanel {
         this.panel = panel;
     }
 
+    public JLabel getYazi() {
+        if(this.yazi==null){
+            this.yazi=new JLabel();
+            this.yazi.setText("Öğrenci Giriş Sistemi");
+            this.yazi.setFont(font);
+            this.yazi.setBounds(100,80,500,40);
+
+        }
+        return yazi;
+    }
+
+    public void setYazi(JLabel yazi) {
+        this.yazi = yazi;
+    }
+
     public JButton getGiris() {
         if(this.giris== null){
             this.giris=new JButton("Giris Yap");
-            this.giris.setBounds(250, 450, 150, 40);
+            this.giris.setBounds(200, 300, 150, 40);
+
+            this.giris.revalidate();
             this.giris.addActionListener(new OgrenciWindowAction(this));
 
         }
