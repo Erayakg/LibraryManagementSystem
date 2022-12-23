@@ -12,11 +12,13 @@ import java.awt.event.ActionListener;
 
 public class MainWindowAction implements ActionListener {
     private MainWindow mw;
-    MainWindowController mainWindowController= new MainWindowController();
+    MainWindowController mainWindowController = new MainWindowController();
     private CustomPanel panel;
+
     public MainWindowAction(MainWindow mw) {
         this.mw = mw;
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == mw.getStudentButton()) {
@@ -28,8 +30,7 @@ public class MainWindowAction implements ActionListener {
             panel = new HostWindow();
             mw.getWindow().setContentPane(panel.getPanel());
             mw.getWindow().repaint();
-            }
-
         }
-    }
 
+    }
+}
