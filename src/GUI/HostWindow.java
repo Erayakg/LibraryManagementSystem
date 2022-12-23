@@ -22,11 +22,9 @@ public class HostWindow implements CustomPanel {
         }
         return panel;
     }
-
     public void setPanel(JPanel panel) {
         this.panel = panel;
     }
-
     public JButton getGiris() {
         if(this.giris== null){
             this.giris=new JButton("Giris Yap");
