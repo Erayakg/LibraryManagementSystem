@@ -12,7 +12,7 @@ public class OgrenciWindow extends MainWindow implements CustomPanel {
     private JTextField temail,tsifre;
 
     Font yazifont= new Font("Courier", Font.PLAIN, 20);
-    Font buttonfont= new Font()
+    //Font buttonfont= new Font();
 
     @Override
     public JPanel getPanel() {
@@ -41,7 +41,7 @@ public class OgrenciWindow extends MainWindow implements CustomPanel {
         if(this.yazi==null){
             this.yazi=new JLabel();
             this.yazi.setText("Öğrenci Giriş Sistemi");
-            this.yazi.setFont(font);
+            this.yazi.setFont(yazifont);
             this.yazi.setBounds(100,80,500,40);
 
         }
@@ -57,7 +57,6 @@ public class OgrenciWindow extends MainWindow implements CustomPanel {
             this.giris=new JButton("Giris Yap");
             this.giris.setBounds(200, 300, 150, 40);
 
-            this.giris.revalidate();
             this.giris.addActionListener(new OgrenciWindowAction(this));
 
         }
