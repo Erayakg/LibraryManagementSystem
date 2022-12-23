@@ -24,10 +24,6 @@ public class MainWindow extends OgrLogWindow {
 
     public void build() {
         getWindow();
-        this.getPanel().add(this.getLabel1());
-        this.getPanel().add(this.getLabel2());
-        this.getPanel().add(this.getStudentButton());
-        this.getPanel().add(this.getButton3());
 
 
     }
@@ -52,6 +48,10 @@ public class MainWindow extends OgrLogWindow {
     public JPanel getPanel() {
         if (this.panel == null) {
             this.panel = new JPanel();
+            this.getPanel().add(this.getLabel1());
+            this.getPanel().add(this.getLabel2());
+            this.getPanel().add(this.getStudentButton());
+            this.getPanel().add(this.getButton3());
             this.panel.setLayout(null);
         }
         return panel;

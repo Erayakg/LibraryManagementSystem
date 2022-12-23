@@ -7,7 +7,8 @@ public class MainWindowController extends AbstractController {
     MainDAO mainDAO= new MainDAO();
     ArrayList<Books> booksArrayList =new ArrayList<>();
     public String BookFileName= String.valueOf(b1.getClass());
-    public String[][] dataGet(){
+
+    public String[][] converDataBook(){
         mainDAO.GetData(BookFileName, booksArrayList);
         int j=0;
         String[][] data;
@@ -18,13 +19,7 @@ public class MainWindowController extends AbstractController {
         }
         return data;
     }
-    public String[][] filterBooks(String search){
-        String[][] data2 = dataGet();
-        int searchindex = searchData(dataGet(),search);
-        String[][] newData=new String[1][1];
-        newData[0]=data2[searchindex];
-        return newData;
-    }
+
 }
 
 
