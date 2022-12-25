@@ -64,6 +64,7 @@ public class OgrLogWindow extends MainWindow implements CustomPanel {
         if(this.ara==null){
             this.ara=new JButton("Kitap Ara");
             this.ara.setBounds(150,300,200,75);
+            this.ara.addActionListener(new OgrLogWindowAction(this));
         }
         return ara;
     }
@@ -76,6 +77,7 @@ public class OgrLogWindow extends MainWindow implements CustomPanel {
         if(this.al== null){
             this.al= new JButton("KitapAl");
             this.al.setBounds(370,300,200,75);
+            this.al.addActionListener(new OgrLogWindowAction(this));
 
         }
         return al;
