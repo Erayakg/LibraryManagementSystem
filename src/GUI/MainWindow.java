@@ -8,7 +8,7 @@ import java.awt.*;
 import java.awt.image.ImageObserver;
 import java.awt.image.ImageProducer;
 
-public class MainWindow extends OgrLogWindow {
+public class MainWindow {
     private JFrame window;
     private JPanel panel;
     private JLabel label1, label2;
