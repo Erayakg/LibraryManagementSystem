@@ -1,12 +1,15 @@
 package GUI;
 
+import GUI_Action.HostWindowAction;
+
 import javax.swing.*;
 
 public class HostWindow implements CustomPanel {
     private JPanel panel;
     private JButton giris;
     private JLabel email,sifre;
-    private JTextField temail,tsifre;
+    private JTextField temail;
+    private JPasswordField tsifre;
 
     @Override
     public JPanel getPanel() {
@@ -29,6 +32,7 @@ public class HostWindow implements CustomPanel {
         if(this.giris== null){
             this.giris=new JButton("Giris Yap");
             this.giris.setBounds(250, 450, 150, 40);
+            this.giris.addActionListener(new HostWindowAction(this));
 
         }
         return giris;
@@ -74,15 +78,15 @@ public class HostWindow implements CustomPanel {
         this.temail = temail;
     }
 
-    public JTextField getTsifre() {
+    public JPasswordField getTsifre() {
         if(this.tsifre== null){
-            this.tsifre=new JTextField();
+            this.tsifre=new JPasswordField();
             this.tsifre.setBounds(130, 222, 150, 35);
         }
         return tsifre;
     }
 
-    public void setTsifre(JTextField tsifre) {
+    public void setTsifre(JPasswordField tsifre) {
         this.tsifre = tsifre;
     }
 

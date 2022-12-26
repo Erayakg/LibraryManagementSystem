@@ -9,7 +9,8 @@ public class OgrenciWindow extends MainWindow implements CustomPanel {
     private JPanel panel;
     private JButton giris;
     private JLabel email,sifre,yazi;
-    private JTextField temail,tsifre;
+    private JTextField temail;
+    private JPasswordField tsifre;
 
     Font yazifont= new Font("Courier", Font.PLAIN, 20);
     //Font buttonfont= new Font();
@@ -103,15 +104,15 @@ public class OgrenciWindow extends MainWindow implements CustomPanel {
         this.temail = temail;
     }
 
-    public JTextField getTsifre() {
+    public JPasswordField getTsifre() {
         if(this.tsifre== null){
-            this.tsifre=new JTextField();
+            this.tsifre=new JPasswordField();
             this.tsifre.setBounds(130, 222, 150, 35);
         }
         return tsifre;
     }
 
-    public void setTsifre(JTextField tsifre) {
+    public void setTsifre(JPasswordField tsifre) {
         this.tsifre = tsifre;
     }
 }
