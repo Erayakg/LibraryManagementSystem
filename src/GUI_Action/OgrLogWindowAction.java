@@ -2,6 +2,7 @@ package GUI_Action;
 
 import GUI.CustomPanel;
 
+import GUI.KitapAlWindow;
 import GUI.KitapAraWindow;
 import GUI.OgrLogWindow;
 
@@ -19,6 +20,14 @@ public class OgrLogWindowAction implements ActionListener {
     public void actionPerformed(ActionEvent e) {
        if(e.getSource()==olw.getAra()){
            panel=new KitapAraWindow();
+           olw.getPanel().setVisible(false);
+           olw.getPanel().removeAll();
+           olw.getPanel().add(panel.getPanel());
+           olw.getPanel().setVisible(true);
+           olw.getPanel().repaint();
+       }
+       if(e.getSource()==olw.getAl()){
+           panel=new KitapAlWindow();
            olw.getPanel().setVisible(false);
            olw.getPanel().removeAll();
            olw.getPanel().add(panel.getPanel());

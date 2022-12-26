@@ -16,6 +16,8 @@ public class MainWindow {
     private JButton SearchButton, StudentButton, button3;
 
     private JTable table;
+
+    Image exit = new ImageIcon(OgrLogWindow.class.getResource("/resim/kapatma.jpg")).getImage();
     MainWindowController mainWindowController = new MainWindowController();
 
     Image mg = new ImageIcon(MainWindow.class.getResource("/resim/ogrenci.jpg")).getImage();

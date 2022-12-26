@@ -1,5 +1,7 @@
 package GUI;
 
+import GUI_Action.KitapAlWindowAction;
+
 import javax.swing.*;
 
 public class KitapEkleWindow extends MainWindow implements CustomPanel{
@@ -117,6 +119,16 @@ public class KitapEkleWindow extends MainWindow implements CustomPanel{
     }
 
     public JButton getCikis() {
+        if(this.cikis==null){
+            this.cikis= new JButton(new ImageIcon(exit));
+            this.cikis.setBounds(650,450,100,100);
+            this.cikis.setOpaque(false);
+            this.cikis.setFocusPainted(false);
+            this.cikis.setBorderPainted(false);
+            this.cikis.setContentAreaFilled(false);
+            this.cikis.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+          //  this.cikis.addActionListener(new KitapEkleWindowAction(this));
+        }
         return cikis;
     }
 
