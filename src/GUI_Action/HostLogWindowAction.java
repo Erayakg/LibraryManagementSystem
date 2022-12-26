@@ -1,8 +1,6 @@
 package GUI_Action;
 
-import GUI.CustomPanel;
-import GUI.HostLogWindow;
-import GUI.KitapAraWindow;
+import GUI.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,7 +14,7 @@ public class HostLogWindowAction implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==hlw.getBhostekle()){
-            panel=new KitapAraWindow();
+            panel=new HostEkleWindow();
             hlw.getPanel().setVisible(false);
             hlw.getPanel().removeAll();
             hlw.getPanel().add(panel.getPanel());
@@ -24,7 +22,7 @@ public class HostLogWindowAction implements ActionListener {
             hlw.getPanel().repaint();
         }
         if(e.getSource()==hlw.getBogrekle()){
-            panel=new KitapAraWindow();
+            panel=new OgrEkleWindow();
             hlw.getPanel().setVisible(false);
             hlw.getPanel().removeAll();
             hlw.getPanel().add(panel.getPanel());
@@ -32,7 +30,7 @@ public class HostLogWindowAction implements ActionListener {
             hlw.getPanel().repaint();
         }
         if(e.getSource()==hlw.getBkitap()){
-            panel=new KitapAraWindow();
+            panel=new KitapWindow();
             hlw.getPanel().setVisible(false);
             hlw.getPanel().removeAll();
             hlw.getPanel().add(panel.getPanel());
