@@ -23,7 +23,7 @@ public class MainWindowController extends AbstractController {
 
     public MainWindowController() {
 
-    }
+    }   
 }
 
 
