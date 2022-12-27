@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 public class HostLogWindowAction implements ActionListener {
     private HostLogWindow hlw;
     private CustomPanel panel;
-    public HostWindowAction(HostLogWindow hlw){
+    public HostLogWindowAction(HostLogWindow hlw){
         this.hlw=hlw;
     }
     @Override
@@ -27,7 +27,7 @@ public class HostLogWindowAction implements ActionListener {
             hlw.getPanel().removeAll();
             hlw.getPanel().add(panel.getPanel());
             hlw.getPanel().setVisible(true);
-            hlw.getPanel().repaint();
+           hlw.getPanel().repaint();
         }
         if(e.getSource()==hlw.getBkitap()){
             panel=new KitapWindow();
@@ -38,7 +38,7 @@ public class HostLogWindowAction implements ActionListener {
             hlw.getPanel().repaint();
         }
         if(e.getSource()==hlw.getBkitapara()){
-            panel=new KitapAraWindow();
+           panel=new KitapAraWindow();
             hlw.getPanel().setVisible(false);
             hlw.getPanel().removeAll();
             hlw.getPanel().add(panel.getPanel());

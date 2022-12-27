@@ -2,6 +2,8 @@ package GUI;
 
 
 
+import GUI_Action.HostLogWindowAction;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -92,6 +94,7 @@ public class HostLogWindow extends MainWindow implements CustomPanel{
         if(this.bogrekle==null){
             this.bogrekle=new JButton("Öğrenci Ekle/Sil/Güncelle");
             this.bogrekle.setBounds(100,250,150,40);
+            this.bogrekle.addActionListener(new HostLogWindowAction(this));
         }
         return bogrekle;
     }
@@ -104,6 +107,7 @@ public class HostLogWindow extends MainWindow implements CustomPanel{
         if(this.bhostekle==null){
             this.bhostekle= new JButton("Kütüphaneci Ekle/Sil");
             this.bhostekle.setBounds(100,450,150,40);
+            this.bhostekle.addActionListener(new HostLogWindowAction(this));
         }
         return bhostekle;
     }
@@ -116,6 +120,7 @@ public class HostLogWindow extends MainWindow implements CustomPanel{
         if(this.bkitap==null){
             this.bkitap= new JButton("Kitap Ekle/Sil/Listele");
             this.bkitap.setBounds(350,250,150,40);
+            this.bkitap.addActionListener(new HostLogWindowAction(this));
         }
         return bkitap;
     }
