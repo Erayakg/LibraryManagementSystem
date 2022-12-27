@@ -20,10 +20,9 @@ public class MainWindowController extends AbstractController {
         }
         return data;
     }
-
     public MainWindowController() {
 
-    }   
+    }
 }
 
 
