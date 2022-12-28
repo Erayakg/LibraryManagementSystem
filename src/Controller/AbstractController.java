@@ -1,30 +1,45 @@
 package Controller;
 import DAO.MainDAO;
 import java.util.ArrayList;
-public abstract class AbstractController {
+import java.util.Arrays;
+import java.util.List;
 
+public abstract class AbstractController {
     MainDAO mainDAO = new MainDAO();
-    public  String[][] searchData(Object o){
+    public  void convertData(Object o,String[][] data){
         String fileName=String.valueOf(o.getClass());
         ArrayList arrayList = new ArrayList();
         mainDAO.GetData(fileName,arrayList);
-        String[][] data = new String[arrayList.size()][];
         int j=0;
         for (int i=0;i<arrayList.size();i++){
             data[j]= String.valueOf(arrayList.get(i)).split("&");
             j++;
         }
-        System.out.println(data);
-        return data;
+    }
+    public Boolean  delete(Object o,String silinecek){
+        String fileName=String.valueOf(o.getClass());
+        ArrayList list1=new ArrayList();
+        String[][] data=new String[calculateData(o)][];
+        mainDAO.GetData(fileName,list1);
+        convertData(o,data);
+        boolean a=false;
+        int silinecekindex =0;
+        for (int i=0;i<data.length;i++){
+            if(data[i][0].equals(silinecek)){
+                 silinecekindex=i;
+                 a=true;
+                 break;
+            }
+        }
+        list1.remove(silinecekindex);
+        mainDAO.SaveArraylist(fileName,list1);
+        return a;
+    }
+    public int calculateData(Object o){
+        String fileName=String.valueOf(o.getClass());
+        ArrayList arrayList = new ArrayList();
+        mainDAO.GetData(fileName,arrayList);
 
-        //String data[][],String search,,int index
-         // for (int i = 0; i < data.length; ++i) {
-         //   for(int j = 0; j < data[i].length; ++j) {
-           //     if(Objects.equals(data[i][j], search)){
-             //       return data[i];
-               // }
-            //}
-        //}
-        //return data[0];
+            return arrayList.size();
     }
 }

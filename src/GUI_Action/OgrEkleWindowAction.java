@@ -1,5 +1,6 @@
 package GUI_Action;
 
+import Controller.OgrenciEkleController;
 import GUI.HostEkleWindow;
 import GUI.OgrEkleWindow;
 
@@ -16,10 +17,21 @@ public class OgrEkleWindowAction implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==oew.getBekle()){
-            JOptionPane.showMessageDialog(oew.getPanel(), "Kütüphaneci ekleniştir");
+            OgrenciEkleController ogrenciEkleController =new OgrenciEkleController();
+            ogrenciEkleController.save(this.oew);
+            JOptionPane.showMessageDialog(oew.getPanel(), "öğrenci ekleniştir");
         }
         if(e.getSource()==oew.getBsil()){
-            JOptionPane.showMessageDialog(oew.getPanel(), "Kütüphaneci Silinmiştir");
+            OgrenciEkleController ogrenciEkleController =new OgrenciEkleController();
+            if (ogrenciEkleController.sil(oew.getTad().getText()))
+            {
+                JOptionPane.showMessageDialog(oew.getPanel(), "öğrenci Silinmiştir");
+            }
+            else {
+                JOptionPane.showMessageDialog(oew.getPanel(), "Aradığınız öğrenci bulunamamıştır!!!");
+
+            }
+
         }
         if(e.getSource()==oew.getCikis()){
             System.exit(0);

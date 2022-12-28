@@ -4,7 +4,11 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.*;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class AbstractDAO {
 
@@ -23,6 +27,17 @@ public abstract class AbstractDAO {
             bv.close();
             System.out.println("dosyaya yazıldı  "+o.getClass());
         }
+    }
+    public void SaveArraylist(String FileName, List list){
+        Path output = Paths.get(FileName);
+
+        try {
+            Files.write(output,list);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
     }
     public void GetData(String FileName,ArrayList arrayList){
         File file =new File(FileName);
