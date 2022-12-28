@@ -1,5 +1,7 @@
 package GUI;
 
+import GUI_Action.KitapWindowAction;
+
 import javax.swing.*;
 
 public class KitapWindow extends MainWindow implements CustomPanel{
@@ -136,6 +138,7 @@ public class KitapWindow extends MainWindow implements CustomPanel{
             if(this.ekle==null){
                 this.ekle= new JButton("EKLE");
                 this.ekle.setBounds(60,220,100,40);
+                this.ekle.addActionListener(new KitapWindowAction(this));
             }
         return ekle;
     }
@@ -148,6 +151,7 @@ public class KitapWindow extends MainWindow implements CustomPanel{
             if(this.sil ==null){
                 this.sil =new JButton("SİL");
                 this.sil.setBounds(160,220,100,40);
+                this.sil.addActionListener(new KitapWindowAction(this));
             }
             return sil;
         }
@@ -165,7 +169,7 @@ public class KitapWindow extends MainWindow implements CustomPanel{
                 this.cikis.setBorderPainted(false);
                 this.cikis.setContentAreaFilled(false);
                 this.cikis.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
-                //  this.cikis.addActionListener(new KitapEkleWindowAction(this));
+                this.cikis.addActionListener(new KitapWindowAction(this));
             }
             return cikis;
         }
