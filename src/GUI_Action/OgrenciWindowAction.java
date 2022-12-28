@@ -1,10 +1,7 @@
 package GUI_Action;
 
 import Controller.ogrenciWindowController;
-import GUI.CustomPanel;
-import GUI.MainWindow;
-import GUI.OgrLogWindow;
-import GUI.OgrenciWindow;
+import GUI.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -39,5 +36,10 @@ public class OgrenciWindowAction implements ActionListener {
             //ow.getWindow().repaint();
 
         }
+        if(e.getSource()==ow.getGeri()){
+         MainWindow mw=new MainWindow();
+         mw.build();
+        }
+        }
     }
-}
+

@@ -38,7 +38,15 @@ public class HostLogWindowAction implements ActionListener {
             hlw.getPanel().repaint();
         }
         if(e.getSource()==hlw.getBkitapara()){
-           panel=new KitapAraWindow();
+            panel=new HKitapAraWindow();
+            hlw.getPanel().setVisible(false);
+            hlw.getPanel().removeAll();
+            hlw.getPanel().add(panel.getPanel());
+            hlw.getPanel().setVisible(true);
+            hlw.getPanel().repaint();
+        }
+        if(e.getSource()==hlw.getGeri()){
+            panel=new HostWindow();
             hlw.getPanel().setVisible(false);
             hlw.getPanel().removeAll();
             hlw.getPanel().add(panel.getPanel());

@@ -2,7 +2,9 @@ package GUI;
 
 
 
+import GUI_Action.HKitapAraWindowAction;
 import GUI_Action.HostLogWindowAction;
+import GUI_Action.KitapWindowAction;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,7 +12,7 @@ import java.awt.*;
 public class HostLogWindow extends MainWindow implements CustomPanel{
     private JPanel panel;
     private JLabel ogrekle,hostekle,kitap,kitapara;
-    private JButton bogrekle,bhostekle,bkitap,bkitapara,cikis;
+    private JButton geri,bogrekle,bhostekle,bkitap,bkitapara,cikis;
     Image kitab = new ImageIcon(HostLogWindow.class.getResource("/resim/kitapekle.jpg")).getImage();
     Image kk = new ImageIcon(HostLogWindow.class.getResource("/resim/kitapara.jpg")).getImage();
     Image ogr = new ImageIcon(HostLogWindow.class.getResource("/resim/öğrenci ekle.png")).getImage();
@@ -32,6 +34,7 @@ public class HostLogWindow extends MainWindow implements CustomPanel{
             this.panel.add(getKitapara());
             this.panel.add(getBkitapara());
             this.panel.add(getCikis());
+            this.panel.add(getGeri());
 
         }
         return panel;
@@ -133,6 +136,7 @@ public class HostLogWindow extends MainWindow implements CustomPanel{
         if(this.bkitapara==null){
             this.bkitapara=new JButton("Kitap Ara");
             this.bkitapara.setBounds(350,450,150,40);
+            this.bkitapara.addActionListener(new HostLogWindowAction(this));
         }
         return bkitapara;
     }
@@ -141,6 +145,18 @@ public class HostLogWindow extends MainWindow implements CustomPanel{
         this.bkitapara = bkitapara;
     }
 
+    public JButton getGeri() {
+        if(this.geri==null){
+            this.geri= new JButton("Geri");
+            this.geri.setBounds(10,10,70,30);
+            this.geri.addActionListener(new HostLogWindowAction(this));
+        }
+        return geri;
+    }
+
+    public void setGeri(JButton geri) {
+        this.geri = geri;
+    }
     public JButton getCikis() {
         if(this.cikis==null){
             this.cikis= new JButton(new ImageIcon(exit));

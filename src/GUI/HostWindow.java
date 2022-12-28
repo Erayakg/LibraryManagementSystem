@@ -1,12 +1,13 @@
 package GUI;
 
 import GUI_Action.HostWindowAction;
+import GUI_Action.KitapWindowAction;
 
 import javax.swing.*;
 
-public class HostWindow implements CustomPanel {
+public class HostWindow extends MainWindow implements CustomPanel {
     private JPanel panel;
-    private JButton giris;
+    private JButton geri,giris;
     private JLabel email,sifre;
     private JTextField temail;
     private JPasswordField tsifre;
@@ -21,6 +22,7 @@ public class HostWindow implements CustomPanel {
             this.panel.add(getTemail());
             this.panel.add(getTsifre());
             this.panel.add(getGiris());
+            this.panel.add(getGeri());
             this.panel.setLayout(null);
         }
         return panel;
@@ -42,6 +44,18 @@ public class HostWindow implements CustomPanel {
         this.giris = giris;
     }
 
+    public JButton getGeri() {
+        if(this.geri==null){
+            this.geri= new JButton("Geri");
+            this.geri.setBounds(10,10,70,30);
+            this.geri.addActionListener(new HostWindowAction(this));
+        }
+        return geri;
+    }
+
+    public void setGeri(JButton geri) {
+        this.geri = geri;
+    }
     public JLabel getEmail() {
         if(this.email== null){
             this.email=new JLabel("EMAİL:");
