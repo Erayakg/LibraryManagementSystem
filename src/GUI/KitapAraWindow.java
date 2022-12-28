@@ -3,6 +3,7 @@ package GUI;
 
 import GUI_Action.KitapAlWindowAction;
 import GUI_Action.KitapAraWindowAction;
+import GUI_Action.KitapWindowAction;
 
 import javax.swing.*;
 
@@ -10,7 +11,7 @@ public class KitapAraWindow extends MainWindow implements CustomPanel {
     private JPanel panel;
     private JLabel kitapad;
     private JTextField tkitapad;
-    private JButton ara,cikis;
+    private JButton geri,ara,cikis;
     private JTable table;
 
     @Override
@@ -24,6 +25,7 @@ public class KitapAraWindow extends MainWindow implements CustomPanel {
             this.panel.add(getAra());
             this.panel.add(getTable());
             this.panel.add(getCikis());
+            this.panel.add(getGeri());
         }
         return panel;
     }
@@ -70,6 +72,18 @@ public class KitapAraWindow extends MainWindow implements CustomPanel {
         this.ara = ara;
     }
 
+    public JButton getGeri() {
+        if(this.geri==null){
+            this.geri= new JButton("Geri");
+            this.geri.setBounds(10,10,70,30);
+            this.geri.addActionListener(new KitapAraWindowAction(this));
+        }
+        return geri;
+    }
+
+    public void setGeri(JButton geri) {
+        this.geri = geri;
+    }
     public JButton getCikis() {
         if(this.cikis==null){
             this.cikis= new JButton(new ImageIcon(exit));

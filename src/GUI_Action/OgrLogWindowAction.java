@@ -1,10 +1,6 @@
 package GUI_Action;
 
-import GUI.CustomPanel;
-
-import GUI.KitapAlWindow;
-import GUI.KitapAraWindow;
-import GUI.OgrLogWindow;
+import GUI.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -34,6 +30,14 @@ public class OgrLogWindowAction implements ActionListener {
            olw.getPanel().setVisible(true);
            olw.getPanel().repaint();
        }
+        if(e.getSource()==olw.getGeri()){
+            panel=new OgrenciWindow();
+            olw.getPanel().setVisible(false);
+            olw.getPanel().removeAll();
+            olw.getPanel().add(panel.getPanel());
+            olw.getPanel().setVisible(true);
+            olw.getPanel().repaint();
+        }
         if(e.getSource()==olw.getCikis()){
             System.exit(0);
         }

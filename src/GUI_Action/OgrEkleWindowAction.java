@@ -1,7 +1,9 @@
 package GUI_Action;
 
 import Controller.OgrenciEkleController;
+import GUI.CustomPanel;
 import GUI.HostEkleWindow;
+import GUI.HostLogWindow;
 import GUI.OgrEkleWindow;
 
 import javax.swing.*;
@@ -10,6 +12,7 @@ import java.awt.event.ActionListener;
 
 public class OgrEkleWindowAction implements ActionListener {
     private OgrEkleWindow oew;
+    private CustomPanel panel;
     public OgrEkleWindowAction(OgrEkleWindow oew){
         this.oew=oew;
     }
@@ -32,6 +35,14 @@ public class OgrEkleWindowAction implements ActionListener {
 
             }
 
+        }
+        if(e.getSource()==oew.getGeri()){
+            panel=new HostLogWindow();
+            oew.getPanel().setVisible(false);
+            oew.getPanel().removeAll();
+            oew.getPanel().add(panel.getPanel());
+            oew.getPanel().setVisible(true);
+            oew.getPanel().repaint();
         }
         if(e.getSource()==oew.getCikis()){
             System.exit(0);

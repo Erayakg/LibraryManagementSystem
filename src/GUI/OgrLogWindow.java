@@ -1,5 +1,6 @@
 package GUI;
 
+import GUI_Action.KitapWindowAction;
 import GUI_Action.OgrLogWindowAction;
 
 import javax.swing.*;
@@ -8,7 +9,7 @@ import java.awt.*;
 public class OgrLogWindow extends MainWindow implements CustomPanel {
     private JPanel panel;
     private JLabel kitapara, kitapal;
-    private JButton ara,al,cikis;
+    private JButton geri,ara,al,cikis;
     Image kara = new ImageIcon(OgrLogWindow.class.getResource("/resim/kitapara.jpg")).getImage();
     Image kal = new ImageIcon(OgrLogWindow.class.getResource("/resim/kitapal.jpg")).getImage();
     Image exit = new ImageIcon(OgrLogWindow.class.getResource("/resim/kapatma.jpg")).getImage();
@@ -24,6 +25,7 @@ public class OgrLogWindow extends MainWindow implements CustomPanel {
             this.panel.add(getAra());
             this.panel.add(getAl());
             this.panel.add(getCikis());
+            this.panel.add(getGeri());
 
         }
         return panel;
@@ -85,6 +87,18 @@ public class OgrLogWindow extends MainWindow implements CustomPanel {
 
     public void setAl(JButton al) {
         this.al = al;
+    }
+    public JButton getGeri() {
+        if(this.geri==null){
+            this.geri= new JButton("Geri");
+            this.geri.setBounds(10,10,70,30);
+            this.geri.addActionListener(new OgrLogWindowAction(this));
+        }
+        return geri;
+    }
+
+    public void setGeri(JButton geri) {
+        this.geri = geri;
     }
 
     public JButton getCikis() {

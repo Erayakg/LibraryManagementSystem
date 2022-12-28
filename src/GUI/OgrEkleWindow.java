@@ -1,6 +1,7 @@
 package GUI;
 
 import GUI_Action.HostEkleWindowAction;
+import GUI_Action.KitapWindowAction;
 import GUI_Action.OgrEkleWindowAction;
 
 import javax.swing.*;
@@ -9,7 +10,7 @@ public class OgrEkleWindow extends MainWindow implements CustomPanel{
     private JPanel panel;
     private JLabel lad,lsoyad,lyas,lemail,lsifre;
     private JTextField tad,tsoyad,tyas,temail,tsifre;
-    private JButton bekle,bsil,cikis;
+    private JButton geri,bekle,bsil,cikis;
 
     @Override
     public JPanel getPanel() {
@@ -30,6 +31,7 @@ public class OgrEkleWindow extends MainWindow implements CustomPanel{
             this.panel.add(getBekle());
             this.panel.add(getBsil());
             this.panel.add(getCikis());
+            this.panel.add(getGeri());
 
         }
         return panel;
@@ -185,6 +187,18 @@ public class OgrEkleWindow extends MainWindow implements CustomPanel{
 
     public void setBsil(JButton bsil) {
         this.bsil = bsil;
+    }
+    public JButton getGeri() {
+        if(this.geri==null){
+            this.geri= new JButton("Geri");
+            this.geri.setBounds(10,10,70,30);
+            this.geri.addActionListener(new OgrEkleWindowAction(this));
+        }
+        return geri;
+    }
+
+    public void setGeri(JButton geri) {
+        this.geri = geri;
     }
 
     public JButton getCikis() {

@@ -1,10 +1,8 @@
 package GUI_Action;
 
-import GUI.CustomPanel;
-import GUI.HostLogWindow;
-import GUI.HostWindow;
-import GUI.OgrLogWindow;
+import GUI.*;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -23,6 +21,10 @@ public class HostWindowAction implements ActionListener {
             hw.getPanel().add(panel.getPanel());
             hw.getPanel().setVisible(true);
             hw.getPanel().repaint();
+        }
+        if(e.getSource()==hw.getGeri()){
+            MainWindow mw=new MainWindow();
+            mw.build();
         }
     }
 }

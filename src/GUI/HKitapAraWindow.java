@@ -1,19 +1,16 @@
 package GUI;
 
-import GUI_Action.KitapAlWindowAction;
-import GUI_Action.KitapWindowAction;
+import GUI_Action.HKitapAraWindowAction;
 
 
 import javax.swing.*;
-import java.awt.*;
 
-public class KitapAlWindow extends MainWindow implements CustomPanel{
+public class HKitapAraWindow extends MainWindow implements CustomPanel{
     private JPanel panel;
     private JLabel kitapad;
     private JTextField tkitapad;
-    private JButton geri,kitapal,cikis;
+    private JButton geri,ara,cikis;
     private JTable table;
-    Image exit = new ImageIcon(OgrLogWindow.class.getResource("/resim/kapatma.jpg")).getImage();
 
     @Override
     public JPanel getPanel() {
@@ -23,7 +20,7 @@ public class KitapAlWindow extends MainWindow implements CustomPanel{
             this.panel.setLayout(null);
             this.panel.add(getKitapad());
             this.panel.add(getTkitapad());
-            this.panel.add(getKitapal());
+            this.panel.add(getAra());
             this.panel.add(getTable());
             this.panel.add(getCikis());
             this.panel.add(getGeri());
@@ -39,7 +36,7 @@ public class KitapAlWindow extends MainWindow implements CustomPanel{
     public JLabel getKitapad() {
         if(this.kitapad==null){
             this.kitapad= new JLabel("Kitap Adı");
-            this.kitapad.setBounds(60,40,100,40);
+            this.kitapad.setBounds(50,50,100,40);
         }
         return kitapad;
     }
@@ -49,9 +46,9 @@ public class KitapAlWindow extends MainWindow implements CustomPanel{
     }
 
     public JTextField getTkitapad() {
-        if (this.tkitapad==null){
-            this.tkitapad= new JTextField();
-            this.tkitapad.setBounds(160,40,100,40);
+        if(this.tkitapad==null){
+            this.tkitapad=new JTextField();
+            this.tkitapad.setBounds(130,60,120,30);
         }
         return tkitapad;
     }
@@ -60,23 +57,24 @@ public class KitapAlWindow extends MainWindow implements CustomPanel{
         this.tkitapad = tkitapad;
     }
 
-    public JButton getKitapal() {
-        if(this.kitapal==null){
-            this.kitapal= new JButton("Kitap Al");
-            this.kitapal.setBounds(160,90,100,40);
-            this.kitapal.addActionListener(new KitapAlWindowAction(this));
+    public JButton getAra() {
+        if(this.ara==null){
+            this.ara= new JButton("ARA");
+            this.ara.setBounds(150,100,100,25);
+            this.ara.addActionListener(new HKitapAraWindowAction(this));
         }
-        return kitapal;
+        return ara;
     }
 
-    public void setKitapal(JButton kitapal) {
-        this.kitapal = kitapal;
+    public void setAra(JButton ara) {
+        this.ara = ara;
     }
+
     public JButton getGeri() {
         if(this.geri==null){
             this.geri= new JButton("Geri");
             this.geri.setBounds(10,10,70,30);
-            this.geri.addActionListener(new KitapAlWindowAction(this));
+            this.geri.addActionListener(new HKitapAraWindowAction(this));
         }
         return geri;
     }
@@ -84,7 +82,6 @@ public class KitapAlWindow extends MainWindow implements CustomPanel{
     public void setGeri(JButton geri) {
         this.geri = geri;
     }
-
     public JButton getCikis() {
         if(this.cikis==null){
             this.cikis= new JButton(new ImageIcon(exit));
@@ -94,7 +91,7 @@ public class KitapAlWindow extends MainWindow implements CustomPanel{
             this.cikis.setBorderPainted(false);
             this.cikis.setContentAreaFilled(false);
             this.cikis.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
-            this.cikis.addActionListener(new KitapAlWindowAction(this));
+            this.cikis.addActionListener(new HKitapAraWindowAction(this));
         }
         return cikis;
     }

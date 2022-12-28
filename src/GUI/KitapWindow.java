@@ -8,7 +8,7 @@ public class KitapWindow extends MainWindow implements CustomPanel{
         private JPanel panel;
         private JLabel lad,lyazar,laciklama,lsayfa;
         private JTextField tad,tyazar,taciklama,tsayfa;
-        private JButton ekle, sil,cikis;
+        private JButton geri,ekle,sil,cikis;
         private JTable table;
 
         @Override
@@ -28,6 +28,7 @@ public class KitapWindow extends MainWindow implements CustomPanel{
                 this.panel.add(getEkle());
                 this.panel.add(getSil());
                 this.panel.add(getTable());
+                this.panel.add(getGeri());
             }
             return panel;
         }
@@ -160,7 +161,20 @@ public class KitapWindow extends MainWindow implements CustomPanel{
             this.sil = sil;
         }
 
-        public JButton getCikis() {
+    public JButton getGeri() {
+            if(this.geri==null){
+                this.geri= new JButton("Geri");
+                this.geri.setBounds(10,10,70,30);
+                this.geri.addActionListener(new KitapWindowAction(this));
+            }
+        return geri;
+    }
+
+    public void setGeri(JButton geri) {
+        this.geri = geri;
+    }
+
+    public JButton getCikis() {
             if(this.cikis==null){
                 this.cikis= new JButton(new ImageIcon(exit));
                 this.cikis.setBounds(650,450,100,100);

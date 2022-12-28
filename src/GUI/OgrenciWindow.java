@@ -1,5 +1,6 @@
 package GUI;
 
+import GUI_Action.KitapWindowAction;
 import GUI_Action.OgrenciWindowAction;
 
 import javax.swing.*;
@@ -7,7 +8,7 @@ import java.awt.*;
 
 public class OgrenciWindow extends MainWindow implements CustomPanel {
     private JPanel panel;
-    private JButton giris;
+    private JButton geri,giris;
     private JLabel email,sifre,yazi;
     private JTextField temail;
     private JPasswordField tsifre;
@@ -26,7 +27,7 @@ public class OgrenciWindow extends MainWindow implements CustomPanel {
             this.panel.add(getTemail());
             this.panel.add(getTsifre());
             this.panel.add(getGiris());
-
+            this.panel.add(getGeri());
 
 
             this.panel.setLayout(null);
@@ -90,6 +91,18 @@ public class OgrenciWindow extends MainWindow implements CustomPanel {
 
     public void setSifre(JLabel sifre) {
         this.sifre = sifre;
+    }
+    public JButton getGeri() {
+        if(this.geri==null){
+            this.geri= new JButton("Geri");
+            this.geri.setBounds(10,10,70,30);
+            this.geri.addActionListener(new OgrenciWindowAction(this));
+        }
+        return geri;
+    }
+
+    public void setGeri(JButton geri) {
+        this.geri = geri;
     }
 
     public JTextField getTemail() {
