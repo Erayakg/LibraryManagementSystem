@@ -1,5 +1,6 @@
 package GUI_Action;
 
+import Controller.BookSearchPageController;
 import GUI.KitapAraWindow;
 
 import javax.swing.*;
@@ -16,13 +17,21 @@ public class KitapAraWindowAction implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
       if(e.getSource()==kaw.getAra()){
-
+          BookSearchPageController bookSearchPageController=new BookSearchPageController();
+          KitapAraWindow kitapAraWindow=new KitapAraWindow();
+          bookSearchPageController.BookSearch(kaw.getTkitapad().getText(),kitapAraWindow);
+          kaw.getPanel().setVisible(false);
+          kaw.getPanel().removeAll();
+          kaw.getPanel().add(kitapAraWindow.getPanel());
+          kaw.getPanel().setVisible(true);
+          kaw.getPanel().repaint();
       }
-      else {
-          JOptionPane.showMessageDialog(kaw.getPanel(), "Aradığınız Kitap Bulunamadı");
+      if (e.getSource()==kaw.getListele()){
+
       }
       if(e.getSource()==kaw.getCikis()){
           System.exit(0);
+
       }
     }
 }

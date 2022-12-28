@@ -39,7 +39,20 @@ public abstract class AbstractController {
         String fileName=String.valueOf(o.getClass());
         ArrayList arrayList = new ArrayList();
         mainDAO.GetData(fileName,arrayList);
-
             return arrayList.size();
+    }
+    public Boolean Login(String email,String password,Object o){
+        String[][] data=new String[calculateData(o)][];
+        convertData(o,data);
+        for (int i=0;i<data.length;i++){
+            if (data[i][2].equals(email)){
+                if (data[i][3].equals(password))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+
     }
 }

@@ -2,7 +2,9 @@ package Controller;
 
 import DAO.MainDAO;
 import Entities.Books.Books;
+import GUI.KitapAraWindow;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class BookSearchPageController extends AbstractController{
@@ -10,8 +12,14 @@ public class BookSearchPageController extends AbstractController{
     Books books = new Books();
     ArrayList<Books> arrayList = new ArrayList<>();
     String BookFileName =String.valueOf(books.getClass());
-public String[][] BookSearch(String bookName){//aranan değer kitabı dönderir
+
+    private KitapAraWindow kitapAlWindow;
+public void BookSearch(String bookName,KitapAraWindow kitapAraWindow){//aranan değer kitabı dönderir
+
+    this.kitapAlWindow=kitapAraWindow;
+
     mainDAO.GetData(BookFileName, arrayList);
+
     int j=0;
     String[][] data;
     data = new String[arrayList.size()][];
@@ -26,8 +34,21 @@ public String[][] BookSearch(String bookName){//aranan değer kitabı dönderir
                 break;
             }
         }
-    return newData;
+
+    convertData(books,newData);
+
+    String[] columsNames={"Name","Yazar","Acıklama","Sayfa Sayısı"};
+
+    JTable jTable =new JTable(newData,columsNames);
+
+    jTable.setBounds(300,30,300,650);
+
+    jTable.setVisible(true);
+
+    kitapAlWindow.setTable(jTable);
+
     }
+
 
 
 }

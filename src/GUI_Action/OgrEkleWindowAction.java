@@ -25,6 +25,7 @@ public class OgrEkleWindowAction implements ActionListener {
             OgrenciEkleController ogrenciEkleController =new OgrenciEkleController();
             if (ogrenciEkleController.sil(oew.getTad().getText()))
             {
+
                 JOptionPane.showMessageDialog(oew.getPanel(), "öğrenci Silinmiştir");
             }
             else {

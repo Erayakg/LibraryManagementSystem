@@ -10,7 +10,12 @@ public class KitapAlWindow extends MainWindow implements CustomPanel{
     private JPanel panel;
     private JLabel kitapad;
     private JTextField tkitapad;
-    private JButton kitapal,cikis;
+    private JButton kitapal;
+    private JButton cikis;
+
+
+
+    private JButton listele;
     private JTable table;
     Image exit = new ImageIcon(OgrLogWindow.class.getResource("/resim/kapatma.jpg")).getImage();
 
@@ -25,10 +30,10 @@ public class KitapAlWindow extends MainWindow implements CustomPanel{
             this.panel.add(getKitapal());
             this.panel.add(getTable());
             this.panel.add(getCikis());
+            this.panel.add(getListele());
         }
         return panel;
     }
-
     @Override
     public void setPanel(JPanel panel) {
         this.panel = panel;
@@ -53,7 +58,18 @@ public class KitapAlWindow extends MainWindow implements CustomPanel{
         }
         return tkitapad;
     }
+    public JButton getListele() {
+        if (this.listele==null){
+            this.listele= new JButton("Kitap listele");
+            this.listele.setBounds(250,90,100,40);
+            this.listele.addActionListener(new KitapAlWindowAction(this));
+        }
+        return listele;
+    }
 
+    public void setListele(JButton listele) {
+        this.listele = listele;
+    }
     public void setTkitapad(JTextField tkitapad) {
         this.tkitapad = tkitapad;
     }

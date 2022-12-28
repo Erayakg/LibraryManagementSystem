@@ -36,8 +36,6 @@ public abstract class AbstractDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
     public void GetData(String FileName,ArrayList arrayList){
         File file =new File(FileName);

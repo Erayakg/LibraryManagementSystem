@@ -10,7 +10,7 @@ public class KitapAraWindow extends MainWindow implements CustomPanel {
     private JPanel panel;
     private JLabel kitapad;
     private JTextField tkitapad;
-    private JButton ara,cikis;
+    private JButton ara,cikis,listele;
     private JTable table;
 
     @Override
@@ -24,10 +24,10 @@ public class KitapAraWindow extends MainWindow implements CustomPanel {
             this.panel.add(getAra());
             this.panel.add(getTable());
             this.panel.add(getCikis());
+            this.panel.add(getListele());
         }
         return panel;
     }
-
     @Override
     public void setPanel(JPanel panel) {
         this.panel = panel;
@@ -39,6 +39,19 @@ public class KitapAraWindow extends MainWindow implements CustomPanel {
             this.kitapad.setBounds(50,50,100,40);
         }
         return kitapad;
+    }
+
+    public JButton getListele() {
+        if (this.listele==null){
+            this.listele= new JButton("listele");
+            this.listele.setBounds(250,100,100,25);
+            this.listele.addActionListener(new KitapAraWindowAction(this));
+        }
+        return listele;
+    }
+
+    public void setListele(JButton listele) {
+        this.listele = listele;
     }
 
     public void setKitapad(JLabel kitapad) {

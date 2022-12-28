@@ -1,5 +1,6 @@
 package GUI;
 
+import Controller.kitapWindowController;
 import GUI_Action.KitapWindowAction;
 
 import javax.swing.*;
@@ -8,9 +9,10 @@ public class KitapWindow extends MainWindow implements CustomPanel{
         private JPanel panel;
         private JLabel lad,lyazar,laciklama,lsayfa;
         private JTextField tad,tyazar,taciklama,tsayfa;
-        private JButton ekle, sil,cikis;
-        private JTable table;
+        private JButton ekle, sil,cikis,listele;
 
+
+    private JTable table;
         @Override
         public JPanel getPanel() {
             if(this.panel==null){
@@ -28,6 +30,7 @@ public class KitapWindow extends MainWindow implements CustomPanel{
                 this.panel.add(getEkle());
                 this.panel.add(getSil());
                 this.panel.add(getTable());
+                this.panel.add(getListele());
             }
             return panel;
         }
@@ -44,6 +47,21 @@ public class KitapWindow extends MainWindow implements CustomPanel{
             }
             return lad;
         }
+
+    public JButton getListele() {
+            if(this.listele==null)
+            {
+                this.listele= new JButton("Listele");
+                this.listele.setBounds(60,260,100,40);
+                this.listele.addActionListener(new KitapWindowAction(this));
+
+            }
+        return listele;
+    }
+
+    public void setListele(JButton listele) {
+        this.listele = listele;
+    }
 
         public void setLad(JLabel lad) {
             this.lad = lad;
@@ -173,11 +191,9 @@ public class KitapWindow extends MainWindow implements CustomPanel{
             }
             return cikis;
         }
-
         public void setCikis(JButton cikis) {
             this.cikis = cikis;
         }
-
         public JTable getTable() {
             if(this.table==null){
                 this.table= new JTable();
@@ -185,7 +201,6 @@ public class KitapWindow extends MainWindow implements CustomPanel{
             }
             return table;
         }
-
         public void setTable(JTable table) {
             this.table = table;
         }
