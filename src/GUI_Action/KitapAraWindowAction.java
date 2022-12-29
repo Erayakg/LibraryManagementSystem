@@ -27,6 +27,14 @@ public class KitapAraWindowAction implements ActionListener {
           kaw.getPanel().repaint();
       }
       if (e.getSource()==kaw.getListele()){
+          BookSearchPageController bookSearchPageController=new BookSearchPageController();
+          KitapAraWindow kitapAraWindow =new KitapAraWindow();
+          bookSearchPageController.listele(kitapAraWindow,kitapAraWindow.getjScrollPane());
+          kaw.getPanel().setVisible(false);
+          kaw.getPanel().removeAll();
+          kaw.getPanel().add(kitapAraWindow.getPanel());
+          kaw.getPanel().setVisible(true);
+          kaw.getPanel().repaint();
 
       }
       if(e.getSource()==kaw.getCikis()){

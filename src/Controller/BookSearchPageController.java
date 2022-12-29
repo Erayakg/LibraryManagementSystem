@@ -5,6 +5,7 @@ import Entities.Books.Books;
 import GUI.KitapAraWindow;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 
 public class BookSearchPageController extends AbstractController{
@@ -12,11 +13,12 @@ public class BookSearchPageController extends AbstractController{
     Books books = new Books();
     ArrayList<Books> arrayList = new ArrayList<>();
     String BookFileName =String.valueOf(books.getClass());
+    private KitapAraWindow kitapAraWindow;
 
-    private KitapAraWindow kitapAlWindow;
-public void BookSearch(String bookName,KitapAraWindow kitapAraWindow){//aranan değer kitabı dönderir
 
-    this.kitapAlWindow=kitapAraWindow;
+    public void BookSearch(String bookName,KitapAraWindow kitapAraWindow){//aranan değer kitabı dönderir
+
+    this.kitapAraWindow=kitapAraWindow;
 
     mainDAO.GetData(BookFileName, arrayList);
 
@@ -32,10 +34,8 @@ public void BookSearch(String bookName,KitapAraWindow kitapAraWindow){//aranan d
         if(data[s][0].equals(bookName) ){
                 newData[0]=data[s];
                 break;
-            }
         }
-
-    convertData(books,newData);
+    }
 
     String[] columsNames={"Name","Yazar","Acıklama","Sayfa Sayısı"};
 
@@ -45,10 +45,40 @@ public void BookSearch(String bookName,KitapAraWindow kitapAraWindow){//aranan d
 
     jTable.setVisible(true);
 
-    kitapAlWindow.setTable(jTable);
+    kitapAraWindow.setTable(jTable);
 
     }
+    public  void listele(KitapAraWindow kitapAraWindow,JScrollPane jScrollPane){
+
+        this.kitapAraWindow=kitapAraWindow;
+
+        mainDAO.GetData(BookFileName, arrayList);
+
+        int j=0;
+        String[][] data;
+        data = new String[arrayList.size()][];
+        for (int i=0;i<arrayList.size();i++){
+            data[j]= String.valueOf(arrayList.get(i)).split("&");
+            j++;
+        }
+
+        String[] columsNames={"Name","Yazar","Acıklama","Sayfa Sayısı"};
+
+        JTable jTable =new JTable(data,columsNames);
+
+        JScrollPane jScrollPane1=new JScrollPane(jTable);
+
+        jScrollPane=jScrollPane1;
+
+        jTable.setBounds(300,30,400,650);
+
+        jScrollPane.setBackground(Color.black);
+
+        kitapAraWindow.setjScrollPane(jScrollPane);
 
 
+        kitapAraWindow.setTable(jTable);
 
+
+    }
 }

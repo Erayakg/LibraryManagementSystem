@@ -5,6 +5,7 @@ import GUI_Action.KitapAlWindowAction;
 import GUI_Action.KitapAraWindowAction;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class KitapAraWindow extends MainWindow implements CustomPanel {
     private JPanel panel;
@@ -12,6 +13,9 @@ public class KitapAraWindow extends MainWindow implements CustomPanel {
     private JTextField tkitapad;
     private JButton ara,cikis,listele;
     private JTable table;
+    private JScrollPane jScrollPane;
+
+
 
     @Override
     public JPanel getPanel() {
@@ -25,6 +29,7 @@ public class KitapAraWindow extends MainWindow implements CustomPanel {
             this.panel.add(getTable());
             this.panel.add(getCikis());
             this.panel.add(getListele());
+            this.panel.add(getjScrollPane());
         }
         return panel;
     }
@@ -69,7 +74,18 @@ public class KitapAraWindow extends MainWindow implements CustomPanel {
     public void setTkitapad(JTextField tkitapad) {
         this.tkitapad = tkitapad;
     }
+    public JScrollPane getjScrollPane() {
+        if(this.jScrollPane==null){
 
+            jScrollPane=new JScrollPane(getTable());
+
+        }
+        return jScrollPane;
+    }
+
+    public void setjScrollPane(JScrollPane jScrollPane) {
+        this.jScrollPane = jScrollPane;
+    }
     public JButton getAra() {
         if(this.ara==null){
             this.ara= new JButton("ARA");
@@ -96,6 +112,7 @@ public class KitapAraWindow extends MainWindow implements CustomPanel {
         }
         return cikis;
     }
+
 
     public void setCikis(JButton cikis) {
         this.cikis = cikis;
