@@ -40,7 +40,7 @@ public class KitapAraWindowAction implements ActionListener {
           kaw.getPanel().repaint();
 
       }
-      if(e.getSource()=kaw.getGeri()){
+      if(e.getSource()==kaw.getGeri()){
           panel=new OgrLogWindow();
           kaw.getPanel().setVisible(false);
           kaw.getPanel().removeAll();

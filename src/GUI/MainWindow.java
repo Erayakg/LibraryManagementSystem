@@ -11,13 +11,14 @@ import java.awt.image.ImageProducer;
 public class MainWindow {
     private JFrame window;
     private JPanel panel;
-    private JLabel label1, label2;
+    private JLabel bglabel,label1, label2;
     private JTextField textField;
     private JButton SearchButton, StudentButton, button3;
 
     private JTable table;
 
     Image exit = new ImageIcon(OgrLogWindow.class.getResource("/resim/kapatma.jpg")).getImage();
+    Image bg= new ImageIcon(MainWindow.class.getResource("/resim/b1.jpg")).getImage();
     MainWindowController mainWindowController = new MainWindowController();
 
     Image mg = new ImageIcon(MainWindow.class.getResource("/resim/ogrenci.jpg")).getImage();
@@ -50,10 +51,11 @@ public class MainWindow {
     public JPanel getPanel() {
         if (this.panel == null) {
             this.panel = new JPanel();
-            this.getPanel().add(this.getLabel1());
-            this.getPanel().add(this.getLabel2());
-            this.getPanel().add(this.getStudentButton());
-            this.getPanel().add(this.getButton3());
+            this.getPanel().add(this.getBglabel());
+            this.getBglabel().add(this.getLabel1());
+            this.getBglabel().add(this.getLabel2());
+            this.getBglabel().add(this.getStudentButton());
+            this.getBglabel().add(this.getButton3());
             this.panel.setLayout(null);
         }
         return panel;
@@ -91,6 +93,17 @@ public class MainWindow {
         this.label2 = label2;
     }
 
+    public JLabel getBglabel() {
+        if(this.bglabel==null){
+            this.bglabel= new JLabel(new ImageIcon(bg));
+            this.bglabel.setSize(800,600);
+        }
+        return bglabel;
+    }
+
+    public void setBglabel(JLabel bglabel) {
+        this.bglabel = bglabel;
+    }
 
     public JButton getStudentButton() {
         if (this.StudentButton == null) {
