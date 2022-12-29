@@ -30,7 +30,6 @@ public class KitapAraWindow extends MainWindow implements CustomPanel {
             this.panel.add(getTable());
             this.panel.add(getCikis());
             this.panel.add(getListele());
-            this.panel.add(getjScrollPane());
         }
         return panel;
     }
@@ -87,18 +86,6 @@ public class KitapAraWindow extends MainWindow implements CustomPanel {
 
     public void setTkitapad(JTextField tkitapad) {
         this.tkitapad = tkitapad;
-    }
-    public JScrollPane getjScrollPane() {
-        if(this.jScrollPane==null){
-
-            jScrollPane=new JScrollPane(getTable());
-
-        }
-        return jScrollPane;
-    }
-
-    public void setjScrollPane(JScrollPane jScrollPane) {
-        this.jScrollPane = jScrollPane;
     }
     public JButton getAra() {
         if(this.ara==null){

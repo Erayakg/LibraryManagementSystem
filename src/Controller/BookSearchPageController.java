@@ -48,7 +48,7 @@ public class BookSearchPageController extends AbstractController{
     kitapAraWindow.setTable(jTable);
 
     }
-    public  void listele(KitapAraWindow kitapAraWindow,JScrollPane jScrollPane){
+    public  void listele(KitapAraWindow kitapAraWindow){
 
         this.kitapAraWindow=kitapAraWindow;
 
@@ -66,19 +66,8 @@ public class BookSearchPageController extends AbstractController{
 
         JTable jTable =new JTable(data,columsNames);
 
-        JScrollPane jScrollPane1=new JScrollPane(jTable);
-
-        jScrollPane=jScrollPane1;
-
         jTable.setBounds(300,30,400,650);
 
-        jScrollPane.setBackground(Color.black);
-
-        kitapAraWindow.setjScrollPane(jScrollPane);
-
-
         kitapAraWindow.setTable(jTable);
-
-
     }
 }
