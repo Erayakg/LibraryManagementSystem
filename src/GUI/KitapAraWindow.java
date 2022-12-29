@@ -3,6 +3,7 @@ package GUI;
 
 import GUI_Action.KitapAlWindowAction;
 import GUI_Action.KitapAraWindowAction;
+import GUI_Action.KitapWindowAction;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,7 +12,7 @@ public class KitapAraWindow extends MainWindow implements CustomPanel {
     private JPanel panel;
     private JLabel kitapad;
     private JTextField tkitapad;
-    private JButton ara,cikis,listele;
+    private JButton geri,ara,cikis,listele;
     private JTable table;
     private JScrollPane jScrollPane;
 
@@ -61,6 +62,19 @@ public class KitapAraWindow extends MainWindow implements CustomPanel {
 
     public void setKitapad(JLabel kitapad) {
         this.kitapad = kitapad;
+    }
+
+    public JButton getGeri() {
+        if(this.geri==null){
+            this.geri= new JButton("Geri");
+            this.geri.setBounds(10,10,70,30);
+            this.geri.addActionListener(new KitapAraWindowAction(this));
+        }
+        return geri;
+    }
+
+    public void setGeri(JButton geri) {
+        this.geri = geri;
     }
 
     public JTextField getTkitapad() {

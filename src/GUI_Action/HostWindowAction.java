@@ -1,10 +1,7 @@
 package GUI_Action;
 
 import Controller.AdminLoginController;
-import GUI.CustomPanel;
-import GUI.HostLogWindow;
-import GUI.HostWindow;
-import GUI.OgrLogWindow;
+import GUI.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -32,6 +29,10 @@ public class HostWindowAction implements ActionListener {
             else {
                 JOptionPane.showMessageDialog(hw.getPanel(), "Giriş başarısız");
             }
+        }
+        if(e.getSource()==hw.getGeri()){
+            MainWindow mw= new MainWindow();
+            mw.build();
         }
     }
 }

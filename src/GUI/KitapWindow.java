@@ -1,6 +1,7 @@
 package GUI;
 
 import Controller.kitapWindowController;
+import GUI_Action.HostWindowAction;
 import GUI_Action.KitapWindowAction;
 
 import javax.swing.*;
@@ -9,7 +10,7 @@ public class KitapWindow extends MainWindow implements CustomPanel{
         private JPanel panel;
         private JLabel lad,lyazar,laciklama,lsayfa;
         private JTextField tad,tyazar,taciklama,tsayfa;
-        private JButton ekle, sil,cikis,listele;
+        private JButton geri,ekle, sil,cikis,listele;
 
 
     private JTable table;
@@ -31,6 +32,7 @@ public class KitapWindow extends MainWindow implements CustomPanel{
                 this.panel.add(getSil());
                 this.panel.add(getTable());
                 this.panel.add(getListele());
+                this.panel.add(getGeri());
             }
             return panel;
         }
@@ -63,7 +65,20 @@ public class KitapWindow extends MainWindow implements CustomPanel{
         this.listele = listele;
     }
 
-        public void setLad(JLabel lad) {
+    public JButton getGeri() {
+            if(this.geri==null){
+                this.geri= new JButton("Geri");
+                this.geri.setBounds(10,10,70,30);
+                this.geri.addActionListener(new KitapWindowAction(this));
+            }
+        return geri;
+    }
+
+    public void setGeri(JButton geri) {
+        this.geri = geri;
+    }
+
+    public void setLad(JLabel lad) {
             this.lad = lad;
         }
 
